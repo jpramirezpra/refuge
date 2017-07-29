@@ -11,6 +11,10 @@ p{
     color:red; 
 }
 
+div.ui.stackable.menu {
+    margin-bottom: 0 !important;
+}
+
 div.ui.menu .item{
     font-size: 1.5rem;
 }
@@ -26,7 +30,19 @@ div.item.logo img{
     height:100%;
 }
 
-.ui.grid{
+.hereMap{
     height:100%;
+    width:100%;
+    padding:0rem !important;
+}
+
+#hereMap{
+    height:100%;
+}
+
+.ui.grid{
+    height:92%;
+    width:100%;
+    margin:0 !important;
 }
 

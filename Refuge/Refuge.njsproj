@@ -30,6 +30,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="public\javascripts\refugeHereMap.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="public\jQuery\jquery.min.js">
       <SubType>Code</SubType>
     </Compile>
@@ -80,9 +83,6 @@
     <Compile Include="public\semantic\components\visit.js" />
     <Compile Include="public\semantic\components\visit.min.js" />
     <Compile Include="public\semantic\semantic.js" />
-    <Compile Include="public\javascripts\test.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="public\semantic\semantic.min.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
