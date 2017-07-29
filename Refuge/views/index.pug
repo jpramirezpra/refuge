@@ -12,6 +12,12 @@ block content
 
     div(class="ui grid")
         div(class="four wide column campList")
+            ul
+                each val in array
+                    li
+                        div(class='red')= val.name
+                        
+            
             h1= title
             p Welcome to #{title}
             p This is The Camp List
@@ -19,5 +25,6 @@ block content
         div(class="twelve wide column hereMap")
             div(id="hereMap")
 
-    
+
+
     script(src="javascripts/refugeHereMap.js")
