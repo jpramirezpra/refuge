@@ -6,3 +6,27 @@
 a {
     color: #00B7FF;
 }
+
+p{
+    color:red; 
+}
+
+div.ui.menu .item{
+    font-size: 1.5rem;
+}
+
+div.item.logo img{
+    height:1.5rem;
+}
+
+
+/*Refuge Camp List*/
+.campList{
+    border-right:1px solid black;
+    height:100%;
+}
+
+.ui.grid{
+    height:100%;
+}
+

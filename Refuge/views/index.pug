@@ -1,5 +1,21 @@
 ﻿extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    div(class='ui stackable menu')
+        div(class='item logo')
+            img(src="/images/camps_icon.png")
+        a(class='item') Add Camp
+        a(class='item') More Info
+
+
+    div(class="ui grid")
+        div(class="four wide column campList")
+            h1= title
+            p Welcome to #{title}
+            p This is The Camp List
+
+        div(class="twelve wide column hereMap")
+            p hereApi
+
+    
+    
