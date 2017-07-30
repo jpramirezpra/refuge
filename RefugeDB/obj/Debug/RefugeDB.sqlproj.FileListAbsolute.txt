@@ -1,0 +1,9 @@
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\bin\Debug\RefugeDB.dacpac
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\bin\Debug\RefugeDB.dll
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\bin\Debug\RefugeDB.pdb
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\obj\Debug\Model.xml
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\obj\Debug\refactor.xml
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\obj\Debug\postdeploy.sql
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\obj\Debug\predeploy.sql
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\obj\Debug\RefugeDB.dll
+C:\Users\jramirez\Refuge\Refuge\RefugeDB\obj\Debug\RefugeDB.pdb

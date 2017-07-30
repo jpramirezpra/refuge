@@ -28,6 +28,50 @@ div.item.logo img{
 .campList{
     border-right:1px solid black;
     height:100%;
+    padding:0px !important;
+}
+
+.campList ul{
+    padding:0px;
+    list-style:none;
+    height:100%;
+    overflow-x:scroll;
+    margin-top:0px;
+}
+
+.campList li{
+    border:1px solid black;
+    margin-left:.5rem !important;
+}
+
+    .campList li.active {
+        background: #d1b593 !important;
+    }
+
+.campList li .name{
+    font-weight:600;
+    font-size:1.8rem;
+}
+
+.campList li .location {
+    font-size:1rem;
+    margin-bottom:.5rem;
+}
+
+.campList li .pop {
+    font-size: .8rem;
+    font-weight:600;
+    color: #7c7c7c;
+}
+
+.campList li .score{
+
+}
+
+.ui.stacked.segment{
+    margin-right:1rem;
+    margin-bottom:.5rem;
+    margin-top:.5rem !important;
 }
 
 .hereMap{
@@ -45,4 +89,6 @@ div.item.logo img{
     width:100%;
     margin:0 !important;
 }
+
+
 

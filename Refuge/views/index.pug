@@ -13,14 +13,12 @@ block content
     div(class="ui grid")
         div(class="four wide column campList")
             ul
-                each val in array
-                    li
-                        div(class='red')= val.name
-                        
-            
-            h1= title
-            p Welcome to #{title}
-            p This is The Camp List
+                each c in camps
+                    li(id="marker"+c.FID, class="ui stacked segment", onClick="funcs.centerMap("+c.LAT_DD+", "+c.LONG_DD+", "+c.FID+")")
+                        div(class='name')= c.NAME_EN
+                        div(class='location')= c.ADM1+", "+c.COUNTRY
+                        div(class="pop")= "Population:"+c.POPULATION
+                        div(class="score")
 
         div(class="twelve wide column hereMap")
             div(id="hereMap")

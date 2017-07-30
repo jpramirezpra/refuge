@@ -88,6 +88,7 @@
     <Compile Include="routes\users.js" />
     <Content Include="package.json" />
     <Content Include="public\images\camps_icon.png" />
+    <Content Include="public\images\camp.png" />
     <Content Include="public\semantic\components\accordion.css" />
     <Content Include="public\semantic\components\accordion.min.css" />
     <Content Include="public\semantic\components\breadcrumb.css" />
@@ -188,6 +189,7 @@
     <Content Include="public\semantic\themes\default\assets\images\flags.png" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <Content Include="routes\DB\RefugeDB.db" />
     <Content Include="routes\shape\Camps_in_Progress.zip" />
     <Content Include="routes\shape\test.wkt" />
     <Content Include="views\index.pug" />
@@ -202,6 +204,7 @@
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
     <Folder Include="public\jQuery\" />
+    <Folder Include="routes\DB\" />
     <Folder Include="routes\shape\" />
     <Folder Include="public\semantic\" />
     <Folder Include="public\semantic\components\" />
