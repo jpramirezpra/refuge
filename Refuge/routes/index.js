@@ -9,17 +9,36 @@ var hereUrl = "https://cle.cit.api.here.com";
 /* GET home page. */
 router.get('/', function (req, res) {
 
-
     res.render('index', { title: 'REFUGE', array: getListofRefugee() });
 });
 
+router.get('/testDb', function (req, res) {
+
+    var sqlite3 = require('sqlite3').verbose();
+    var db = new sqlite3.Database('RefugeDatabase', sqlite3.OPEN_READWRITE, function (error) {
+        res.render('UploadFile');
+    });
+
+    db.open();
+
+    db.run("SELECT * FROM testTable", function (err, row) {
+        if (err == null) {
+            var data = row;
+        }
+
+        res.render('UploadFile');
+    });
+
+    db.close();
+})
+
 router.get('/uploadShapeFile', function (req, res) {
-    var postUrl = hereUrl + '/2/layers/upload.json';
+    var postUrl = hereUrl + '/2/layers/upload.json?app_id=siqtyDjqWHW6QTGXwbtY&app_code=9HTj_sF6NO0dometkPDDfg';
 
     var formData = {
-        file: fs.createReadStream(__dirname + '/shape/Camps_in_Progress.wkt'),
-        app_id: 'siqtyDjqWHW6QTGXwbtY',
-        app_code: '9HTj_sF6NO0dometkPDDfg',
+        file: fs.createReadStream(__dirname + '/shape/test.wkt'),
+        //app_id: 'siqtyDjqWHW6QTGXwbtY',
+        //app_code: '9HTj_sF6NO0dometkPDDfg',
         layer_id: '1',
         // Pass optional meta-data with an 'options' object with style: {value: DATA, options: OPTIONS} 
         // Use case: for some types of streams, you'll need to provide "file"-related information manually. 
@@ -32,7 +51,8 @@ router.get('/uploadShapeFile', function (req, res) {
         //    }
         //}
     };
-    request.post({ url: 'http://service.com/upload', formData: formData }, function optionalCallback(err, httpResponse, body) {
+    request.post({ url: postUrl, formData: formData }, function optionalCallback(err, httpResponse, body) {
+
         if (err) {
             return console.error('upload failed:', err);
         }
