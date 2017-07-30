@@ -168,7 +168,7 @@
         while (campData[i] != undefined) {
             if (campData[i].FID == id) {
                 map.setCenter({ lat: campData[i].lat, lng: campData[i].long });
-                map.setZoom(8);
+                map.setZoom(10);
             }
             i++;
         }
@@ -190,7 +190,7 @@
             $('.campList ul').children().removeClass('active');
             $('#marker' + id).addClass('active');
             map.setCenter({ lat: lat, lng: long });
-            map.setZoom(8);
+            map.setZoom(10);
         },
         showModal: function () {
             $('#modal').addClass('active');

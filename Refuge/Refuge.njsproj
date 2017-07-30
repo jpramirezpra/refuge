@@ -92,6 +92,7 @@
     <Content Include="public\images\camp.png" />
     <Content Include="public\images\distance.PNG" />
     <Content Include="public\images\popden.PNG" />
+    <Content Include="public\images\regression.PNG" />
     <Content Include="public\semantic\components\accordion.css" />
     <Content Include="public\semantic\components\accordion.min.css" />
     <Content Include="public\semantic\components\breadcrumb.css" />

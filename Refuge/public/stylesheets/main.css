@@ -141,6 +141,14 @@ div.item.logo img{
     text-align:center;
 }
 
+.ui.modal .sixteen.wide.column {
+        text-align: center;
+}
+
+#regression{
+    height:35rem !important;
+}
+
 .ui.modal > .content{
     display:block !important;
     height: 40rem;
