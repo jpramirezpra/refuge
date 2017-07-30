@@ -41,6 +41,15 @@ router.get('/conflictpoints', function (req, res) {
         });
 })
 
+router.get('/camppolygon', function (req, res) {
+    var refuge = nano.db.use('refugedb');
+
+    refuge.get('couchpolygon', { "FID_": ["1"]},
+        function (err, body) {
+            res.send(JSON.stringify(body));
+        });
+})
+
 router.get('/uploadShapeFile', function (req, res) {
     //var postUrl = hereUrl + '/2/layers/upload.json?app_id=siqtyDjqWHW6QTGXwbtY&app_code=9HTj_sF6NO0dometkPDDfg';
 

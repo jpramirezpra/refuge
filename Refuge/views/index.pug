@@ -6,6 +6,7 @@ block content
     div(class='ui stackable menu')
         div(class='item logo')
             img(src="/images/camps_icon.png")
+        div(class="item") Syrian Refugee Conflict Map
         div(class="right menu")
             a(class='item', onClick="funcs.showModal()") What is ORC Index?
 
@@ -33,7 +34,23 @@ block content
     div(class="ui modal", id="modal")
         div(class="header") What is the ORC Index?
         div(class="content")
-            p This is there the content goes
+            h3 Scoring the Optimal Refugee Camp Index (ORC Index) 
+            p With over-densely populated camps, the U.N. reports that refugee camps struggle to provide enough food for the civilians. Recent reports also highlight how disease and illnesses spread quicker throughout the camp. In an effort to provide information to aide-decision- makers, the researchers analyzed camp conditions by a measure determined by the U.N. The Optimal Refugee Camp (ORC) Index averages two scores. These are the Population Density Score and the Distance to Closest Attack Score. The ideal score for the ORC is 1 and the range is 0-1. The U.N. considers 45 meters squared per person humane living conditions (2014). Researchers calculated the population density by taking the area of the refugee camps and dividing it by the population.
+            p For our measure of The Distance to Closest Attack Score, the researchers gathered information from the web to create a database of recent attacks from Syrian conflict. The attacks were then mapped in order to find the distance from an attack to a refugee camp.
+            h3 Regression
+            p Using the dataset, the researchers were able to find a significant correlation between population density and distance to closest attack (p&lt;.05, p=.04). Meaning, the greater the distance a refugee camp was from an attack, the more room people had to live.
+            div(class="ui grid")
+                div(class="eight wide column")
+                    img(src="images/popden.PNG")
+                div(class="eight wide column")
+                    img(src="images/distance.PNG")
+            
+            h3 Limitation
+            p Our findings are limited to the sample size due to time constraints of the project. If we had more time, we would like to incorporate data from conflicts and refugee camps around the world. The data on attacks was also limited to two months, May 2017 – June 2017. In the future, Cyber_Ratz would like users to be able to add personal reviews and experience from the camp. We hope this technology brings knowledge to aid workers and the U.N. about the changing conditions of Syrian refugee camps.
+
+
+            div(class="ref") Current Status in AFAD Temporary Protection Centres – Syria (2017).  AFAD Republic of Turkey Prime Ministry Disaster and Emergency Management Authority Republic of Turkey Prime Ministry Disaster and Emergency Management Authority https://www.afad.gov.tr/en/2602/CurrentStatus-in-AFAD Temporary-Protection-Centres
+            div(class="ref") U.N. (2014). Syrian Refugee Camps, Turkey, Jordan and Iraq. United States. Department of	State.	Humanitarian Information Unit. Retrieved August 29, 2017, from https://earthworks.stanford.edu/catalog
         div(class="actions")
             div(class="ui black deny button", onClick="funcs.closeModal()") Close
 

@@ -32,8 +32,8 @@
             document.getElementById('hereMap'),
             defaultLayers.normal.map,
             {
-                zoom: 5,
-                center: { lat: 33.3128, lng: 44.3615 }
+                zoom: 6,
+                center: { lat: 35.327849, lng: 38.770115 }
             });
 
         behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
@@ -59,6 +59,8 @@
         // Create an icon, an object holding the latitude and longitude, and a marker:
         var icon = new H.map.Icon('images/camp.png')
 
+
+        //CAMPS
         $.get("/plotpoints", function (data) {
             //PLot Camps
             var camps = JSON.parse(data);
@@ -89,7 +91,7 @@
         });
 
 
-
+        //CONFLICTS
         $.get("/conflictpoints", function (data) {
             //PLot Camps
             var conflicts = JSON.parse(data);
@@ -124,6 +126,41 @@
                 i++
             }
         });
+
+    }
+
+    function showPolygon(id) {
+        //POLYGON
+        $.get("/camppolygon", function (data) {
+            //PLot Camps
+            var polygons = JSON.parse(data);
+            delete polygons._id;
+            delete polygons._rev;
+
+            var i = 1;
+            var strip = new H.geo.Strip();
+            var coords;
+            var selectPolygonCoor;
+            while (polygons[i] != undefined) {
+                if (polygons[i].FID_ == id) {
+                    selectPolygonCoor = polygons[i].coordinates
+                    for (var x = 0; x < selectPolygonCoor.length; x++) {
+                        coords = { lat: selectPolygonCoor[x][0], lng: selectPolygonCoor[x][0]}
+                        strip.pushPoint(coords);
+                    }
+                }
+                i++;
+            } 
+
+            debugger;
+            var polyline = new H.map.Polyline(strip, { style: { lineWidth: 10 } });
+
+            map.addObject(polyline);
+
+            // Zoom the map to make sure the whole polyline is visible:
+            map.setViewBounds(polyline.getBounds());
+           
+        });
     }
 
     function updateMap(id) {
@@ -131,7 +168,7 @@
         while (campData[i] != undefined) {
             if (campData[i].FID == id) {
                 map.setCenter({ lat: campData[i].lat, lng: campData[i].long });
-                map.setZoom(10);
+                map.setZoom(8);
             }
             i++;
         }
@@ -145,7 +182,7 @@
             $('.campList ul').children().removeClass('active');
             $('#marker' + id).addClass('active');
             map.setCenter({ lat: lat, lng: long });
-            map.setZoom(10);
+            map.setZoom(8);
         },
         showModal: function () {
             $('#modal').addClass('active');

@@ -7,10 +7,6 @@ a {
     color: #00B7FF;
 }
 
-p{
-    color:red; 
-}
-
 div.ui.stackable.menu {
     margin-bottom: 0 !important;
 }
@@ -116,5 +112,46 @@ div.item.logo img{
     margin:0 !important;
 }
 
+.ui.modal{
+    top:1rem !important;
+}
+
+.ui.modal .header{
+    background:white !important;
+}
+
+.ui.modal .content{
+    max-height: 80%;
+    overflow-y: scroll;
+    overflow-x: none;
+    padding-top:0px !important;
+}
+
+.ui.modal .actions {
+    background: white !important;
+}
+
+.ui.modal .ref{
+    margin-top:.5em;
+    font-size: .8rem;
+    color:#4f4f4f;
+}
+
+.ui.modal .eight.wide.column{
+    text-align:center;
+}
+
+.ui.modal > .content{
+    display:block !important;
+    height: 40rem;
+    overflow-y:scroll;
+}
+    
+.ui.modal .ui.grid{
+    height:auto;
+}    
 
 
+.ui.modal img {
+    height:8rem;
+}
