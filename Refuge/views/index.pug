@@ -6,22 +6,36 @@ block content
     div(class='ui stackable menu')
         div(class='item logo')
             img(src="/images/camps_icon.png")
-        a(class='item') Add Camp
-        a(class='item') More Info
+        div(class="right menu")
+            a(class='item', onClick="funcs.showModal()") What is ORC Index?
 
 
     div(class="ui grid")
         div(class="four wide column campList")
             ul
                 each c in camps
-                    li(id="marker"+c.FID, class="ui stacked segment", onClick="funcs.centerMap("+c.LAT_DD+", "+c.LONG_DD+", "+c.FID+")")
-                        div(class='name')= c.NAME_EN
-                        div(class='location')= c.ADM1+", "+c.COUNTRY
-                        div(class="pop")= "Population:"+c.POPULATION
-                        div(class="score")
+                    li(id="marker"+c.FID, class="ui stacked segment", onClick="funcs.centerMap("+c.lat+", "+c.long+", "+c.FID+")")
+                        div(class='name')= c.name_eng
+                        div(class='location')= "Area: "+c.area +" sq m"
+                        div(class="pop")= "Population: "+c.population+" refugees"
+                        div(class="pop")= "Density: "+c.den2+" sq m per person"
+                        if c.Score > 0.5
+                            div(class="score good")= c.Score
+                        else if c.Score > 0.25
+                            div(class="score medium")=c.Score
+                        else
+                            div(class="score bad")=c.Score
 
         div(class="twelve wide column hereMap")
             div(id="hereMap")
+
+
+    div(class="ui modal", id="modal")
+        div(class="header") What is the ORC Index?
+        div(class="content")
+            p This is there the content goes
+        div(class="actions")
+            div(class="ui black deny button", onClick="funcs.closeModal()") Close
 
 
 

@@ -45,7 +45,7 @@ div.item.logo img{
 }
 
     .campList li.active {
-        background: #d1b593 !important;
+        border: 5px solid #a22139 !important;
     }
 
 .campList li .name{
@@ -64,9 +64,35 @@ div.item.logo img{
     color: #7c7c7c;
 }
 
-.campList li .score{
-
+.campList li .score {
+    position: relative;
+    float: right;
+    border: 1px solid green;
+    font-weight:600;
+    font-size:1.1em;
+    border-radius:90px;
+    height:45px;
+    width:45px;
+    margin:auto;
+    padding-top: .7rem;
+    text-align:center;
+    top: -4rem;
 }
+
+    .campList li .score.good {
+        border: 1px solid #457a45;
+        color: #457a45;
+    }
+
+    .campList li .score.medium {
+        border: 1px solid #e5bb46;
+        color: #e5bb46;
+    }
+
+    .campList li .score.bad {
+        border: 1px solid #ad2323;
+        color: #ad2323;
+    }
 
 .ui.stacked.segment{
     margin-right:1rem;

@@ -68,11 +68,11 @@
 
             var coords;
             var marker;
-            var i = 0;
+            var i = 1;
             var id;
             var correction = $('.ui.stackable.menu').height() + 10;
             while (camps[i] != undefined) {
-                coords = { lat: camps[i].LAT_DD, lng: camps[i].LONG_DD };
+                coords = { lat: camps[i].lat, lng: camps[i].long };
                 marker = new H.map.Marker(coords, { icon: icon });
                 marker.data = camps[i].FID;
                 marker.addEventListener("tap", function (evt) {
@@ -87,13 +87,50 @@
                 i++
             }
         });
+
+
+
+        $.get("/conflictpoints", function (data) {
+            //PLot Camps
+            var conflicts = JSON.parse(data);
+            delete conflicts._id;
+            delete conflicts._rev;
+
+           
+            var svgMarkup;
+            var icon;
+            var coords;
+            var marker;
+            var i = 1;
+            
+            while (conflicts[i] != undefined) {
+                svgMarkup = '<svg width="24" height="24" ' +
+                    'xmlns="http://www.w3.org/2000/svg">' +
+                    '<rect stroke="white" fill="red" x="1" y="1" width="22" ' +
+                    'height="22" /><text x="12" y="18" font-size="10pt" ' +
+                    'font-family="Arial" font-weight="bold" text-anchor="middle" ' +
+                    'fill="white">' + conflicts[i].Death +'</text></svg>';
+
+
+                icon = new H.map.Icon(svgMarkup),
+                coords = { lat: conflicts[i].lat, lng: conflicts[i].long };
+                marker = new H.map.Marker(coords, { icon: icon });
+                marker.data = "Date of Conflict; " + conflicts[i].Date + ", Deaths: " + conflicts[i].Death;
+                marker.addEventListener("tap", function (evt) {
+                    alert(this.data);
+                });
+
+                map.addObject(marker);
+                i++
+            }
+        });
     }
 
     function updateMap(id) {
-        var i = 0;
+        var i = 1;
         while (campData[i] != undefined) {
             if (campData[i].FID == id) {
-                map.setCenter({ lat: campData[i].LAT_DD, lng: campData[i].LONG_DD });
+                map.setCenter({ lat: campData[i].lat, lng: campData[i].long });
                 map.setZoom(10);
             }
             i++;
@@ -104,11 +141,17 @@
     load();
 
     return {
-        centerMap: function (lat, lng, id) {
+        centerMap: function (lat, long, id) {
             $('.campList ul').children().removeClass('active');
             $('#marker' + id).addClass('active');
-            map.setCenter({ lat: lat, lng: lng });
+            map.setCenter({ lat: lat, lng: long });
             map.setZoom(10);
+        },
+        showModal: function () {
+            $('#modal').addClass('active');
+        },
+        closeModal: function () {
+            $('#modal').removeClass('active');
         }
     }
 }());

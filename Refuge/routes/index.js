@@ -14,7 +14,7 @@ var hereUrl = "https://cle.cit.api.here.com";
 router.get('/', function (req, res) {
     var refuge = nano.db.use('refugedb');
 
-    refuge.get('refugeecamps', { NAME: { "$not": "" } }, function (err, body) {
+    refuge.get('campInfo', { name_eng: { "$not": "" } }, function (err, body) {
         delete body._id;
         delete body._rev;
         res.render('index', { title: 'REFUGE', camps: body });
@@ -24,7 +24,17 @@ router.get('/', function (req, res) {
 router.get('/plotpoints', function (req, res) {
     var refuge = nano.db.use('refugedb');
 
-    refuge.get('refugeecamps', { NAME: { "$not": "" }, _id: false},
+    refuge.get('campInfo', { name_eng: { "$not": "" }, _id: false},
+        function (err, body) {
+
+            res.send(JSON.stringify(body));
+        });
+})
+
+router.get('/conflictpoints', function (req, res) {
+    var refuge = nano.db.use('refugedb');
+
+    refuge.get('conflicts', { name_eng: { "$not": "" }, _id: false },
         function (err, body) {
 
             res.send(JSON.stringify(body));
