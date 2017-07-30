@@ -174,8 +174,16 @@
         }
     }
 
+    function loadData() {
+        var reader = new H.data.geojson.Reader('GeoJSON/campsdata.geoJSON');
+        reader.parse();
+        // Assumption: map already exists
+        map.addLayer(reader.getLayer());
+    }
+
     init();
     load();
+    loadData();
 
     return {
         centerMap: function (lat, long, id) {
