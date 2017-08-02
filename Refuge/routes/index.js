@@ -14,12 +14,11 @@ var hereUrl = "https://cle.cit.api.here.com";
 router.get('/', function (req, res) {
     var refuge = nano.db.use('refugedb');
 
-    //refuge.get('campInfo', { name_eng: { "$not": "" } }, function (err, body) {
-    //    delete body._id;
-    //    delete body._rev;
-    //    res.render('index', { title: 'REFUGE', camps: body });
-    //});
-    res.render('index', { title: 'REGUGE' });
+    refuge.get('campInfo', { name_eng: { "$not": "" } }, function (err, body) {
+        delete body._id;
+        delete body._rev;
+        res.render('index', { title: 'REFUGE', camps: body });
+    });
 });
 
 router.get('/plotpoints', function (req, res) {
